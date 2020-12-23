@@ -26,6 +26,11 @@ namespace MovieList
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRouting(Options =>
+            {
+                Options.LowercaseUrls = true;
+                Options.AppendTrailingSlash = true;
+            });
             services.AddDbContext<MovieContext>(options =>
                    options.UseSqlServer(
                        Configuration.GetConnectionString("MovieContext"))
@@ -56,7 +61,7 @@ namespace MovieList
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}{slug?}");
             });
         }
     }

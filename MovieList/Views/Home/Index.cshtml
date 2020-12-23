@@ -26,9 +26,11 @@
                 <td>@movie.Rating</td>
                 <td>
                     <a asp-controller="Movie" asp-action="Edit"
-                       asp-route-id="@movie.MovieId">Edit</a>
+                       asp-route-id="@movie.MovieId"
+                       asp-route-slug="@movie.Slug">Edit</a>
                     <a asp-controller="Movie" asp-action="Delete"
-                       asp-route-id="@movie.MovieId">Delete</a>
+                       asp-route-id="@movie.MovieId"
+                       asp-route-slug="@movie.Slug">Delete</a>
                 </td>
             </tr>
         }
